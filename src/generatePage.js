@@ -75,7 +75,7 @@ function writeFile(destination, text){
         }
         resolve({
           ok: true,
-          message: `File Created!`
+          message: `File '${destination.slice(7)}' Created!`
         })
       })
     })

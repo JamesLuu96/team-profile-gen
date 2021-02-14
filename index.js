@@ -8,6 +8,7 @@ let isEmployee = false
 const employees = []
 
 async function newEmployee(){
+    
     await inquirer.prompt([
         {
             name: `role`,
@@ -67,7 +68,6 @@ async function newEmployee(){
                     return true
                 }else{
                     console.log(`\nPlease enter a valid e-mail.`)
-                    console.log('%c Oh my heavens! ', 'background: #222; color: #bada55');
                     return false
                 }
             }
@@ -136,9 +136,12 @@ async function newEmployee(){
                 newEmployee()
             } else{
                 writeFile(`./dist/index.html`, generatePage(employees))
+                .then(x=>console.log(x))
                 writeFile(`./dist/styles.css`, css)
+                .then(x=>console.log(x))
             }
         })
     })
 }
+console.log(`Team Manager's Information:`)
 newEmployee()
