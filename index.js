@@ -2,7 +2,8 @@ const inquirer = require('inquirer')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager')
-const generatePage = require(`./src/generatePage`)
+const validator = require('email-validator')
+const { generatePage, writeFile, css } = require(`./src/generatePage`)
 let isEmployee = false
 const employees = []
 
@@ -62,9 +63,11 @@ async function newEmployee(){
             message: `What is your e-mail?`,
             type: `input`,
             validate: function(email){
-                if(email){
+                if(validator.validate(email)){
                     return true
                 }else{
+                    console.log(`\nPlease enter a valid e-mail.`)
+                    console.log('%c Oh my heavens! ', 'background: #222; color: #bada55');
                     return false
                 }
             }
@@ -72,7 +75,7 @@ async function newEmployee(){
         // If Engineer
         {
             name: `github`,
-            message: `What is your Github?`,
+            message: `What is your Github username?`,
             type: `input`,
             validate: function(github){
                 if(github){
@@ -132,7 +135,8 @@ async function newEmployee(){
                 isEmployee = true
                 newEmployee()
             } else{
-                generatePage(employees)
+                writeFile(`./dist/index.html`, generatePage(employees))
+                writeFile(`./dist/styles.css`, css)
             }
         })
     })

@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/JamesLuu96/team-profile-gen#readme",
   "dependencies": {
+    "email-validator": "^2.0.4",
+    "fs": "0.0.1-security",
     "inquirer": "^7.3.3",
     "jest": "^26.6.3"
   }
