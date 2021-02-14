@@ -12,7 +12,8 @@ This generator generates a dynamically styled html page around your team, using 
 after cloning the repository, type 'npm install' to install the dependencies.  
 
 ## Usage
-type 'node index.js' then fill out the inputs accordingly.
+type 'node index.js' then fill out the inputs accordingly.  
+[Click to watch the Walkthrough Video](https://drive.google.com/file/d/1DrqWalsIQu73QgpRpLEesBGA_HOGgHRr/view)
 
 
 ## License
